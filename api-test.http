@@ -3,21 +3,20 @@
 @baseUrl = http://localhost:5000
 
 ### ========================================================
-### 1. AUTH MODULE (টোকেন তৈরি করার জন্য)
+### 1. AUTH MODULE (টোকেন তৈরি ও লগইন)
 ### ========================================================
 
-### 1.1 Register Student
+### 1.1 Register User (সবাই ডিফল্টভাবে STUDENT হিসেবে রেজিস্টার হবে)
 POST {{baseUrl}}/api/v1/auth/register
 Content-Type: application/json
 
 {
   "name": "Rahim Ahmed",
   "email": "student@example.com",
-  "password": "password123",
-  "role": "STUDENT"
+  "password": "password123"
 }
 
-### 1.2 Login as Student (টোকেন কপি করুন)
+### 1.2 Login as Student (টোকেন পাওয়ার জন্য)
 # @name studentLogin
 POST {{baseUrl}}/api/v1/auth/login
 Content-Type: application/json
@@ -27,18 +26,7 @@ Content-Type: application/json
   "password": "password123"
 }
 
-### 1.3 Register Mentor
-POST {{baseUrl}}/api/v1/auth/register
-Content-Type: application/json
-
-{
-  "name": "Dr. Kamal Mentor",
-  "email": "mentor@example.com",
-  "password": "password123",
-  "role": "MENTOR"
-}
-
-### 1.4 Login as Mentor (টোকেন কপি করুন)
+### 1.3 Login as Seeded Mentor (আপনার সিড করা মেন্টর ক্রেডেনশিয়াল বসান)
 # @name mentorLogin
 POST {{baseUrl}}/api/v1/auth/login
 Content-Type: application/json

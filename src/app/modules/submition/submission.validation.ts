@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Status } from "../../../../../generated/prisma/enums";
+import { Status } from "../../../../generated/prisma/enums";
 
 export const createSubmissionValidationSchema = z.object({
   projectName: z

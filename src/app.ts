@@ -5,9 +5,9 @@ import cors from "cors";
 import httpStatus from "http-status";
 import config from "./app/config";
 import { AuthRoutes } from "./app/modules/auth/auth.route";
+import { SubmissionRoutes } from "./app/modules/submition/submission.route";
 import { globalErrorHandler } from "./app/middlewere/globalErrorHandlers";
 import { notFound } from "./app/middlewere/notFound";
-import { SubmissionRoutes } from "./app/modules/auth/submition/submission.route";
 
 const app: Application = express();
 

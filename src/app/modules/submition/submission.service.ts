@@ -1,12 +1,12 @@
 import httpStatus from "http-status";
-import { prisma } from "../../../lib/prisma";
-import { AppError } from "../../../utils/AppError";
+import { prisma } from "../../lib/prisma";
+import { AppError } from "../../utils/AppError";
 import {
   ISubmissionFilterRequest,
   ISubmissionPayload,
 } from "./submission.interface";
-import { Status } from "../../../../../generated/prisma/enums";
-import type { Prisma } from "../../../../../generated/prisma/client";
+import { Status } from "../../../../generated/prisma/enums";
+import type { Prisma } from "../../../../generated/prisma/client";
 
 const studentFileSubmission = async (
   payload: ISubmissionPayload,

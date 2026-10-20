@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { auth } from "../../../middlewere/checkAuth";
-import { Role } from "../../../../../generated/prisma/enums";
-import { validateRequest } from "../../../middlewere/validateRequest";
+import { auth } from "../../middlewere/checkAuth";
+import { Role } from "../../../../generated/prisma/enums";
+import { validateRequest } from "../../middlewere/validateRequest";
 import {
   createSubmissionValidationSchema,
   updateSubmissionStatusValidationSchema,

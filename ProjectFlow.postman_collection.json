@@ -10,7 +10,7 @@
       "name": "Auth",
       "item": [
         {
-          "name": "Register Student",
+          "name": "Register (Student Only)",
           "request": {
             "method": "POST",
             "header": [
@@ -21,7 +21,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Student One\",\n  \"email\": \"student@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"STUDENT\"\n}"
+              "raw": "{\n  \"name\": \"Student One\",\n  \"email\": \"student@example.com\",\n  \"password\": \"password123\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/auth/register",
@@ -52,28 +52,7 @@
           }
         },
         {
-          "name": "Register Mentor",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Mentor One\",\n  \"email\": \"mentor@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"MENTOR\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/api/v1/auth/register",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "auth", "register"]
-            }
-          }
-        },
-        {
-          "name": "Login Mentor",
+          "name": "Login Mentor (Seeded Mentor)",
           "request": {
             "method": "POST",
             "header": [

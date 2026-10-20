@@ -31,7 +31,7 @@ const registerUser = async (payload: RegisterPayload) => {
       name: payload.name,
       email,
       password: hashedPassword,
-      role: payload.role || Role.STUDENT,
+      role: Role.STUDENT,
     },
     select: {
       id: true,
