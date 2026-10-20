@@ -1,12 +1,15 @@
+import type { Application, Request, Response } from "express";
+import express from "express";
 import cookieParser from "cookie-parser";
-import express, { Application, Request, Response } from "express";
-
 import cors from "cors";
-import config from "./config";
-
-
+import httpStatus from "http-status";
+import config from "./app/config";
+import { AuthRoutes } from "./app/modules/auth/auth.route";
+import { globalErrorHandler } from "./app/middlewere/globalErrorHandlers";
+import { notFound } from "./app/middlewere/notFound";
 
 const app: Application = express();
+
 app.use(
   cors({
     origin: config.app_url,
@@ -14,20 +17,22 @@ app.use(
   }),
 );
 
-app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
-
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cookieParser());
 
-// app.use("/api/auth", userRouter);
-// app.use("/api/booking");
+// api routes
+app.use("/api/v1/auth", AuthRoutes);
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("hello world");
+// Basic route
+app.get("/", (_req: Request, res: Response) => {
+  res.status(httpStatus.OK).json({
+    success: true,
+    message: "Welcome to ProjectFlow Backend",
+  });
 });
 
-// app.use(notFound);
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
+app.use(notFound);
 
 export default app;
