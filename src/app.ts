@@ -7,6 +7,7 @@ import config from "./app/config";
 import { AuthRoutes } from "./app/modules/auth/auth.route";
 import { globalErrorHandler } from "./app/middlewere/globalErrorHandlers";
 import { notFound } from "./app/middlewere/notFound";
+import { SubmissionRoutes } from "./app/modules/auth/submition/submission.route";
 
 const app: Application = express();
 
@@ -21,8 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-// api routes
+// API routes
 app.use("/api/v1/auth", AuthRoutes);
+app.use("/api/v1/submissions", SubmissionRoutes);
+app.use("/api/v1/submission", SubmissionRoutes);
+app.use("/api/submissions", SubmissionRoutes);
 
 // Basic route
 app.get("/", (_req: Request, res: Response) => {
