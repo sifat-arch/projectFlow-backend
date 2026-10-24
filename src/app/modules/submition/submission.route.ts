@@ -18,9 +18,27 @@ router.post(
   SubmissionController.studentFileSubmission,
 );
 
-// Student: Get own submissions
+// Student: Get own submissions (support /my, /my-submition, /my-submission, /my-submissions)
 router.get(
   "/my",
+  auth(Role.STUDENT),
+  SubmissionController.getMySubmissions,
+);
+
+router.get(
+  "/my-submition",
+  auth(Role.STUDENT),
+  SubmissionController.getMySubmissions,
+);
+
+router.get(
+  "/my-submission",
+  auth(Role.STUDENT),
+  SubmissionController.getMySubmissions,
+);
+
+router.get(
+  "/my-submissions",
   auth(Role.STUDENT),
   SubmissionController.getMySubmissions,
 );

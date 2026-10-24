@@ -11,9 +11,23 @@ import { notFound } from "./app/middlewere/notFound";
 
 const app: Application = express();
 
+const allowedOrigins = [
+  config.app_url,
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "http://localhost:5000",
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: config.app_url,
+    origin: (origin, callback) => {
+      // allow requests with no origin (like mobile apps or curl) or if in allowed list
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(null, true);
+      }
+    },
     credentials: true,
   }),
 );

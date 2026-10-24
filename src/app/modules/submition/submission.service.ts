@@ -48,6 +48,15 @@ const getMySubmissions = async (userId: string) => {
     orderBy: {
       createdAt: "desc",
     },
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
+    },
   });
 
   return submissions;
